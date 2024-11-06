@@ -32,3 +32,6 @@ where id = 1;
 -- deletar
 delete from pessoa
 where id = 1;
+
+-- deletar table
+drop table;
