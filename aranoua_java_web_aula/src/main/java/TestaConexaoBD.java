@@ -6,22 +6,25 @@ public class TestaConexaoBD {
 //        jdbc:mysql://localhost:3306//aranoua_java_web == Onde esta instalado o BD
         String url = "jdbc:mysql://localhost:3306/aranoua_java_web";
         String usuario = "root"; //user do BD que será feita a conexao
-        String senha = "aranoua"; //senha do BD que será feita a conexao
+        String senha = "root"; //senha do BD que será feita a conexao
         try {
+        Pessoa pessoa = new Pessoa(05,"Pessoa 02","pessoa02@ifam.edu.br");
             Connection conexao = DriverManager.getConnection(url, usuario, senha);
             System.out.println("Conexão realizada!");//Para mostrar que deu certo
 
             Statement instrucao = conexao.createStatement();
             String sqlInserir = "insert into pessoa" +
-                         " (nome,email)" +
-                         " values" +
-                         " ('Pessoa04','pessoa04@ifam.edu.br')"; //Insere a Pessoa
-           // System.out.println("SQL:"+sqlInserir);
-           // boolean resultado = instrucao.execute(sqlInserir);
+                    " (nome,email)" +
+                    " values" +
+                    " ('"+pessoa.getNome()+"','"+pessoa.getEmail()+"')";
+            System.out.println(sqlInserir);
+            //Insere a Pessoa
+            // System.out.println("SQL:"+sqlInserir);
+            // boolean resultado = instrucao.execute(sqlInserir);
 
             String sqlAlterar = "update pessoa" +
-                    " set nome = 'João'" +
-                    " where id = 1"; //Modifica o campo informado
+                    " set nome = '"+pessoa.getNome()+"'"+
+                    " where id = "+pessoa.getId(); //Modifica o campo informado
             // System.out.println("SQL:"+sqlAlterar);
             // boolean resultado = instrucao.execute(sqlAlterar);
 
@@ -37,7 +40,7 @@ public class TestaConexaoBD {
             if(resultado){
                 ResultSet resultados = instrucao.getResultSet();
                 while(resultados.next()){
-                System.out.println("ID:"+resultados.getInt(1));
+                    System.out.println("ID:"+resultados.getInt(1));
                     System.out.println("NOME:"+resultados.getString(2));
                     System.out.println("EMAIL:"+resultados.getString(3));
                     System.out.println("*******************************************");
