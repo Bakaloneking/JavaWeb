@@ -4,12 +4,14 @@ public class TestaConexaoBD {
 
     public static void main(String[] args) {
 //        jdbc:mysql://localhost:3306//aranoua_java_web == Onde esta instalado o BD
-        String url = "jdbc:mysql://localhost:3306/aranoua_java_web";
+       /* String url = "jdbc:mysql://localhost:3306/aranoua_java_web";
         String usuario = "root"; //user do BD que será feita a conexao
-        String senha = "root"; //senha do BD que será feita a conexao
+        String senha = "root"; //senha do BD que será feita a conexao*/
         try {
         Pessoa pessoa = new Pessoa(05,"Pessoa 02",92993791610,"pessoa02@ifam.edu.br");
-            Connection conexao = DriverManager.getConnection(url, usuario, senha);
+            //Connection conexao = DriverManager.getConnection(url, usuario, senha);
+            ConexaoUtil conexaoUtil = new ConexaoUtil();
+            Connectio conexao = conexaoUtil.getConexao();
             System.out.println("Conexão realizada!");//Para mostrar que deu certo
 
             Statement instrucao = conexao.createStatement();
