@@ -8,15 +8,15 @@ public class TestaConexaoBD {
         String usuario = "root"; //user do BD que será feita a conexao
         String senha = "root"; //senha do BD que será feita a conexao
         try {
-        Pessoa pessoa = new Pessoa(05,"Pessoa 02","pessoa02@ifam.edu.br");
+        Pessoa pessoa = new Pessoa(05,"Pessoa 02",92993791610,"pessoa02@ifam.edu.br");
             Connection conexao = DriverManager.getConnection(url, usuario, senha);
             System.out.println("Conexão realizada!");//Para mostrar que deu certo
 
             Statement instrucao = conexao.createStatement();
             String sqlInserir = "insert into pessoa" +
-                    " (nome,email)" +
+                    " (nome,telefone,email)" +
                     " values" +
-                    " ('"+pessoa.getNome()+"','"+pessoa.getEmail()+"')";
+                    " ('"+pessoa.getNome()+"',"+pessoa.getTelefone()+",'"+pessoa.getEmail()+"')";
             System.out.println(sqlInserir);
             //Insere a Pessoa
             // System.out.println("SQL:"+sqlInserir);
@@ -34,7 +34,7 @@ public class TestaConexaoBD {
             //System.out.println("SQL:"+sqlDeletar);
             //boolean resultado = instrucao.execute(sqlDeletar);
 
-            String sqlListar = "select id,nome,email from pessoa";
+            String sqlListar = "select id,nome,telefone,email from pessoa";
             System.out.println("SQL:"+sqlListar);
             boolean resultado = instrucao.execute(sqlListar);
             if(resultado){
@@ -42,7 +42,8 @@ public class TestaConexaoBD {
                 while(resultados.next()){
                     System.out.println("ID:"+resultados.getInt(1));
                     System.out.println("NOME:"+resultados.getString(2));
-                    System.out.println("EMAIL:"+resultados.getString(3));
+                    System.out;println("TELEFONE:"+resultados.getDouble(3));
+                    System.out.println("EMAIL:"+resultados.getString(4));
                     System.out.println("*******************************************");
                 }
             }
