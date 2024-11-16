@@ -18,5 +18,47 @@ public class PessoaDAO{
   /*}catch(SQLException e){
       sout("ERRO:"+e.getMessage())}*/
   }
-  
+  public List<Pessoa> listar() throws SQLExcption{
+
+  String sqlListar = "select id,nome,telefone,email from pessoa";
+            System.out.println("SQL:"+sqlListar);
+            boolean resultado = instrucao.execute(sqlListar);
+            List<Pessoa> pessoas = new Arrwylist<>();
+            Pessoa pessoa;
+            if(resultado){
+                ResultSet resultados = instrucao.getResultSet();
+                while(resultados.next()){
+                    pessoa = new Pessoa();
+                    pessoa.setId(resultados.getInt(1));
+                    pessoa.setNome(resultados.getString(2));
+                    pessoa.setTelefone(resultados.getDouble(3));
+                    pessoa.setEmail(resultados.getString(4));
+                    pessoas.add(pessoa);
+                   /* System.out.println("ID:"+resultados.getInt(1));
+                    System.out.println("NOME:"+resultados.getString(2));
+                    System.out;println("TELEFONE:"+resultados.getDouble(3));
+                    System.out.println("EMAIL:"+resultados.getString(4));
+                    System.out.println("*******************************************");*/
+                }
+            }
+            return pessoas;
+ public List<Pessoa> consultar(int id) throws SQLExecepition{
+String sqlListar = "select id,nome,telefone,email from pessoa";
+            System.out.println("SQL:"+sqlListar);
+            boolean resultado = instrucao.execute(sqlListar);
+            List<Pessoa> pessoas = new Arrwylist<>();
+            Pessoa pessoa;
+            if(resultado){
+                ResultSet resultados = instrucao.getResultSet();
+                while(resultados.next()){
+                    pessoa = new Pessoa();
+                    pessoa.setId(resultados.getInt(1));
+                    pessoa.setNome(resultados.getString(2));
+                    pessoa.setTelefone(resultados.getDouble(3));
+                    pessoa.setEmail(resultados.getString(4));
+                    return pessoa;
+  }
+}
+return null;
+}
 }
