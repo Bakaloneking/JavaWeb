@@ -1,0 +1,19 @@
+//pacote dao
+//PessoaDAO
+
+public class PessoaDAO{
+  public void inserir (Pessoa pessoa) throws SQLException{
+  ConexaoUtil conexaoUtil =new ConexaoUtil();
+  /*try{*/
+  Connectio conexao = conexao.creatStatement();
+  Statement instrucao = conexao.createStatement();
+            String sqlInserir = "insert into pessoa" +
+                    " (nome,telefone,email)" +
+                    " values" +
+                    " ('"+pessoa.getNome()+"',"+pessoa.getTelefone()+",'"+pessoa.getEmail()+"')";
+             System.out.println("SQL:"+sqlInserir);
+             instrucao.execute(sqlInserir);
+  /*}catch(SQLException e){
+      sout("ERRO:"+e.getMessage())}*/
+  }
+}
