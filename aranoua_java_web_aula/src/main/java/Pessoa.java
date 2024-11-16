@@ -11,6 +11,12 @@ public class Pessoa {
         this.telefone = telefone;
         this.email = "email";
     }
+
+    public Pessoa(String nome, double telefone, String email){
+        this.nome = "nome";
+        this.telefone = telefone;
+        this.email = "email";
+    }
     public int getId(){
         return id;
     }
