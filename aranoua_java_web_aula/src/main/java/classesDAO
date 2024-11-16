@@ -3,9 +3,11 @@
 
 public class PessoaDAO{
   public void inserir (Pessoa pessoa) throws SQLException{
-  ConexaoUtil conexaoUtil =new ConexaoUtil();
+  ConexaoUtil conexaoUtil = new ConexaoUtil();
+  Connection conexao = conexaoUtil.getConexao();
+  Statement instrucao = conexao.createStatement();
   /*try{*/
-  Connectio conexao = conexao.creatStatement();
+  Connectio conexao = conexao.creatStatement()
   Statement instrucao = conexao.createStatement();
             String sqlInserir = "insert into pessoa" +
                     " (nome,telefone,email)" +
@@ -16,4 +18,5 @@ public class PessoaDAO{
   /*}catch(SQLException e){
       sout("ERRO:"+e.getMessage())}*/
   }
+  
 }
