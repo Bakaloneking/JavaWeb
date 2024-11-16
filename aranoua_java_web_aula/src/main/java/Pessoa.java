@@ -2,7 +2,7 @@
 public class Pessoa {
     private int id;
     private String nome;
-    private int telefone;
+    private double telefone;
     private String email;
     
     public Pessoa(int id, String nome, int telefone, String email){
