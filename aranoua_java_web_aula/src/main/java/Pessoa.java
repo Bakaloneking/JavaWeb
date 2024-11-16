@@ -5,7 +5,7 @@ public class Pessoa {
     private double telefone;
     private String email;
     
-    public Pessoa(int id, String nome, int telefone, String email){
+    public Pessoa(int id, String nome, double telefone, String email){
         this.id = id;
         this.nome = "nome";
         this.telefone = telefone;
@@ -26,7 +26,7 @@ public class Pessoa {
     public int getTelefone(){
         return telefone;
     }
-    public void setTelefone(int telefone){
+    public void setTelefone(double telefone){
         this.telefone = telefone;
     }
     public String getEmail(){
