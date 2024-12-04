@@ -1,0 +1,16 @@
+name: aranoua-javaweb-jsp
+web application
+tomcat 11.0.1
+java
+maven
+marcar webprofile
+
+colocar a dependencia do mysql no pom.xml
+
+criar pacote model, modelDAO, util
+
+copiar a classe pessoa para model
+copiar a classe conexao util para util
+copiar classe pessoa dao e refazer os inports de servlet
+
+corrigir todos os imports
